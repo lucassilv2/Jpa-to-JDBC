@@ -1,6 +1,11 @@
 package com.bcopstein.CtrlCorredorV1.negocio.entidades;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Evento {
+    @Id
     private int id;
     private String nome;
     // Data do evento
@@ -67,4 +72,6 @@ public class Evento {
         return "Evento [ano=" + ano + ", dia=" + dia + ", distancia=" + distancia + ", horas=" + horas + ", id=" + id
                 + ", mes=" + mes + ", minutos=" + minutos + ", nome=" + nome + ", segundos=" + segundos + "]";
     }
+    
+    protected Evento() {}
 }

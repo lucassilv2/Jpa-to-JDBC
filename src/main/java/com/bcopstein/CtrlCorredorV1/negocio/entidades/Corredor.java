@@ -1,6 +1,11 @@
 package com.bcopstein.CtrlCorredorV1.negocio.entidades;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Corredor {
+    @Id
     private String cpf;
     private String nome;
     private int diaDn,mesDn,anoDn;
@@ -37,5 +42,6 @@ public class Corredor {
     public String getGenero() {
         return genero;
     }
-
+    
+    protected Corredor() {}
 }
