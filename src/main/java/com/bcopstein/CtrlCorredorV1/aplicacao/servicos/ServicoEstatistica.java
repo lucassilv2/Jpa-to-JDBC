@@ -9,9 +9,10 @@ import com.bcopstein.CtrlCorredorV1.negocio.entidades.Evento;
 import com.bcopstein.CtrlCorredorV1.negocio.repositorios.IEventoRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class ServicoEstatistica {
     private IEventoRepository eventoRep;
     private ICalculoEstatistica calculoEstatistica;
@@ -21,7 +22,6 @@ public class ServicoEstatistica {
         this.eventoRep = eventoRepository;
         this.calculoEstatistica = calculoEstatistica;
     }
-
     public EstatisticasDTO calculaEstatisticas(int distancia){
         return (EstatisticasDTO) calculoEstatistica.calculaEstatisticas(distancia);
     }

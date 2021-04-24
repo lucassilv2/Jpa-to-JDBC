@@ -8,7 +8,8 @@ import com.bcopstein.CtrlCorredorV1.negocio.entidades.Evento;
 import com.bcopstein.CtrlCorredorV1.negocio.repositorios.IEventoRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.stereotype.Service;
+@Service
 public class EstatisticaNormal implements ICalculoEstatistica {
     private IEventoRepository eventoRep;
     

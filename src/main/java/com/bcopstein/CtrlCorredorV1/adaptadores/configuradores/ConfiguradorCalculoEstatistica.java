@@ -11,26 +11,16 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @Configuration
 @ComponentScan
+@EnableJpaRepositories
 public class ConfiguradorCalculoEstatistica {
     private IEventoRepository eventoRep;
 
     @Autowired
     public ConfiguradorCalculoEstatistica(IEventoRepository eventoRep) {
         this.eventoRep = eventoRep;
-    }
-
-    @Bean(name="RegraClassica")
-    @Primary
-    @ConditionalOnProperty(name = "calculo.estatistica", havingValue = "original", matchIfMissing = true)
-    public ICalculoEstatistica opcaoRegraClassica() {
-        return new EstatisticaNormal(eventoRep);
-    }
-
-    @Bean(name="Desconsidera")
-    public ICalculoEstatistica opcaoDesconsidera() {
-        return (ICalculoEstatistica) new EstatisticaDesconsidera(eventoRep);
     }
 }
